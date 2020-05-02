@@ -1,7 +1,7 @@
 include ./mixins.pug
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -9,7 +9,48 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      main.main-content
+        .welcome-section
+          section.hello-section.fullscreen-section
+            .container.hello-section_container
+              header.header
+                .header__logo
+                  .logo СЕ
+                .header__nav
+                  nav.menu
+                    - var navMenuItems = ['Главная', "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                    ul.menu__items
+                      each item in navMenuItems
+                        li.menu__item
+                          a.menu__link #{item}
+                .header__social
+                  - var icons = ['Instagram', 'Vkontakte', 'Github'];
+                  ul.social
+                    each item in icons
+                      li.social__item
+                        a(href="#").social__link
+                          +icon(item, 'social__icon')
+
+              .hello-content
+                .developer-data
+                  .developer-data__info Личный сайт веб разработчика
+                  .developer-data__name Сергей Ерёмин
+
+              .scroll-btn
+                a(href="").scroll-down-btn Скролл 
+                  +icon('Scroll', 'scroll-down')
+          section.about-the-developer
+            .container
+              .about
+                .about__developer-info
+                  .developer-info
+                    .developer-info__avatar
+                      .avatar
+                        +image('./content/user', 'avatar__developer')
+                    .developer-info__data
+                      
+
+                .about__developer-text
+
+
+          
